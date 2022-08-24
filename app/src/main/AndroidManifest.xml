@@ -24,7 +24,9 @@
         <activity
             android:name=".Menu_viajes"
             android:exported="true"/>
-
+        <activity
+            android:name=".Desc_viajes"
+            android:exported="true"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">

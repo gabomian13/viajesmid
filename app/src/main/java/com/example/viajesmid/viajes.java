@@ -4,18 +4,18 @@ public class viajes {
 
 
     private
-    String idProducto;
+    String idviaje;
     String nombre;
     String descripcion;
     String foto;
     String precio;
 
-    public String getIdProducto() {
-        return idProducto;
+    public String getIdviaje() {
+        return idviaje;
     }
 
-    public void setIdProducto(String idProducto) {
-        this.idProducto = idProducto;
+    public void setIdviaje(String idviaje) {
+        this.idviaje = idviaje;
     }
 
     public String getNombre() { return nombre;
@@ -48,8 +48,8 @@ public class viajes {
         this.precio = precio;
     }
 
-    public viajes(String idProducto, String nombre, String descripcion, String foto, String precio) {
-        this.idProducto = idProducto;
+    public viajes(String idviaje, String nombre, String descripcion, String foto, String precio) {
+        this.idviaje = idviaje;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.foto = foto;

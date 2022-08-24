@@ -19,20 +19,21 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONObject;
 
 public class Registro extends AppCompatActivity {
+
     EditText nombre, email, pass;
-    Button atras, listo;
+    Button regresarlogin, guardar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registro);
-        atras = (Button)findViewById(R.id.btn_regresar);
-        listo = (Button)findViewById(R.id.bt_guardar);
+        regresarlogin = (Button)findViewById(R.id.btn_regresar);
+        guardar = (Button)findViewById(R.id.bt_guardar);
         nombre = (EditText)findViewById(R.id.ed_usuario);
         email = (EditText)findViewById(R.id.ed_correo);
         pass = (EditText)findViewById(R.id.ed_nuevopass);
 
-        listo.setOnClickListener(new View.OnClickListener() {
+        guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i= new Intent(getApplicationContext(),MainActivity.class);
@@ -41,7 +42,7 @@ public class Registro extends AppCompatActivity {
             }
         });
 
-        atras.setOnClickListener(new View.OnClickListener() {
+        regresarlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i= new Intent(getApplicationContext(),MainActivity.class);
@@ -52,7 +53,7 @@ public class Registro extends AppCompatActivity {
     }
     private void InsertarUsuario() {
         RequestQueue queque = Volley.newRequestQueue(this);
-        String url= "https://viajesmid.000webhostapp.com/consultas.php?nombre="+nombre.getText().toString()+"&email="+email.getText().toString()+"&pass="+pass.getText().toString();
+        String url= "https://viajesmid.000webhostapp.com/cons.php?nombre="+nombre.getText().toString()+"&email="+email.getText().toString()+"&pass="+pass.getText().toString();
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -70,5 +71,4 @@ public class Registro extends AppCompatActivity {
 
         queque.add(jsonObjectRequest);
     }
-
 }

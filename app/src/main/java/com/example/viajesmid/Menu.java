@@ -41,7 +41,7 @@ public class Menu extends AppCompatActivity {
     }
     private void GetCategos() {
         RequestQueue queque = Volley.newRequestQueue(this);
-        String url= "https://viajesmid.000webhostapp.com/consultas.php?menu";
+        String url= "https://viajesmid.000webhostapp.com/cons.php?menu";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {

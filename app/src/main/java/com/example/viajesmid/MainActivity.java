@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void login() {
         RequestQueue queque = Volley.newRequestQueue(this);
-        String url= "https://viajesmid.000webhostapp.com/consultas.php?login=1&email"+usuario.getText().toString()+"&pass="+contraseña.getText().toString();
+        String url= "https://viajesmid.000webhostapp.com/cons.php?logeate=1&email"+usuario.getText().toString()+"&pass="+contraseña.getText().toString();
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {

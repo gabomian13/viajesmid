@@ -27,6 +27,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class Desc_viajes extends AppCompatActivity {
+
+
     private ArrayList<viajes> list_detalles;
     private ViajeAdapter adapter;
     TextView nombre, detalle, precio, total;
@@ -52,7 +54,7 @@ public class Desc_viajes extends AppCompatActivity {
 
 
         preferences=getSharedPreferences("pedidos", Context.MODE_PRIVATE);
-        validadCantidad("idproducto");
+        validadCantidad("idviaje");
 
         carrito.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +68,7 @@ public class Desc_viajes extends AppCompatActivity {
         agregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Producto Agregado Correctamente" , Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Viaje Agregado Correctamente" , Toast.LENGTH_LONG).show();
 
 
             }
@@ -107,23 +109,23 @@ public class Desc_viajes extends AppCompatActivity {
         list_detalles = new ArrayList<>();
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            if (extras.get("idproducto") != null) {
-                Toast.makeText(getApplicationContext(), "Se mostrara el producto: " + extras.get("idproducto").toString(), Toast.LENGTH_LONG).show();
-                GetProductos(extras.get("idproducto").toString());
+            if (extras.get("idviaje") != null) {
+                Toast.makeText(getApplicationContext(), "Se mostrara el viaje: " + extras.get("idviaje").toString(), Toast.LENGTH_LONG).show();
+                GetViajes(extras.get("idviaje").toString());
             }
 
         }
     }
-    private void validadCantidad(String idproducto) {
-        String cantidad = preferences.getString(idproducto,"0");
+    private void validadCantidad(String idviaje) {
+        String cantidad = preferences.getString(idviaje,"0");
         total.setText("Cantidad: "+cantidad);
 
     }
 
 
-    private void GetProductos(String idproducto) {
+    private void GetViajes(String idviaje) {
         RequestQueue queque = Volley.newRequestQueue(this);
-        String url = "https://fashionstylefdo.000webhostapp.com/ws.php?detalles=" + idproducto;
+        String url = "https://viajesmid.000webhostapp.com/cons.php?detalles=" + idviaje;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -155,5 +157,6 @@ public class Desc_viajes extends AppCompatActivity {
 
         queque.add(jsonObjectRequest);
     }
+
 
 }

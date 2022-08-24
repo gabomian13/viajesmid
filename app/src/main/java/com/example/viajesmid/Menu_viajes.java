@@ -40,7 +40,7 @@ public class Menu_viajes extends AppCompatActivity {
         Bundle extras=getIntent().getExtras();
         if (extras != null){
             if (extras.get("idCategoria")!=null){
-                Toast.makeText(getApplicationContext(), "Se mostraran los productos de la categoria: "+extras.get("idCategoria").toString(),Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Se mostraran los viajes del menu: "+extras.get("idCategoria").toString(),Toast.LENGTH_LONG).show();
                 GetProductos(extras.get("idCategoria").toString());
             }
 
@@ -49,7 +49,7 @@ public class Menu_viajes extends AppCompatActivity {
 
     private void GetProductos(String idCategoria) {
         RequestQueue queque = Volley.newRequestQueue(this);
-        String url= "https://viajesmid.000webhostapp.com/consultas.php?viajes="+idCategoria;
+        String url= "https://viajesmid.000webhostapp.com/cons.php?viajes="+idCategoria;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -86,7 +86,7 @@ public class Menu_viajes extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
                 Intent intent = new Intent(Menu_viajes.this,Desc_viajes.class);
-                intent.putExtra("idproducto",list_viajes.get(i).getIdProducto());
+                intent.putExtra("idviaje",list_viajes.get(i).getIdviaje());
                 startActivity(intent);
                 Toast.makeText(getApplicationContext(), "Seleccionaste: "+list_viajes.get(i).getNombre(),Toast.LENGTH_LONG).show();
             }
